@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+}
+
+#accept-text-form {
+    display: block;
+    margin-top: 70px;
+  }
+
+.display-text-container {
+    display: flex;
+    align-items: center; /* children center vertically */
+    justify-content: center; /* children center horizontaly */
+    margin: 70px 400px;
+    height: 200px;
+    border: 1px groove black
+}
+
+.textfield {
+    /* background-color: #B10DC9; */
+    width: 500px;
+    height: 70px;
+  }
