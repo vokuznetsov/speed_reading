@@ -2,6 +2,10 @@ body {
     text-align: center;
 }
 
+.outer {
+  margin: 7px;
+}
+
 #accept-text-form {
     display: block;
     margin-top: 70px;

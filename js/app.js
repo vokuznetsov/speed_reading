@@ -9,11 +9,9 @@ function main() {
 function addText(event) {
     event.preventDefault();
 
-    const textInput = document.getElementById('text-input');
-    const text = textInput.value;
-
-    const speedInput = document.getElementById('speed-input');
-    const speed = speedInput.value;
+    const text = getValueByElementId('text-input');
+    const speed = getValueByElementId('speed-input');
+    const numberDisplayWords = getValueByElementId('display-words');
 
     if (text === '' || speed === undefined) {
         return alert("Необходимо ввести название задачи");
@@ -22,31 +20,63 @@ function addText(event) {
     const textField = document.querySelector('.textfield');
     const textArr = text.split(/[\s,]+/);
 
-    if (textArr.length > 3) {
-        printWords(0, textArr, textField, speed);
-    } else {
-        textField.innerHTML = textInput;
-    }
-
-
+    printWords(numberDisplayWords, speed, 0, textArr, textField);
+    //textField.innerHTML = '';
 
     console.log(text);
 }
 
-function printWords(i, textArr, textField, speed) {
-    setTimeout(function () {
-        if (i < textArr.length) {
-            var outputWords = [];
-            for (; outputWords.length < 3 && i < textArr.length; i++) {
-                outputWords.push(textArr[i]);
+function printWords(numberDisplayWords, speed, i, textArr, textField) {
+    if (textArr.length < numberDisplayWords) {
+        textField.innerHTML = textArr.join(' ');
+    } else {
+        setTimeout(function () {
+            if (i < textArr.length) {
+                var outputWords = [];
+                for (; outputWords.length < numberDisplayWords && i < textArr.length; i++) {
+                    outputWords.push(textArr[i]);
+                }
+
+                var firstPart = firstPartOfText(outputWords);
+                var middlePart = middlePartOfText(outputWords);
+                var lastPart = lastPartOfText(outputWords);
+
+                var text = firstPart + ' ' + middlePart + ' ' + lastPart;
+                textField.innerHTML = text;
+
+                printWords(numberDisplayWords, speed, i, textArr, textField);
             }
-
-            var text = outputWords.join(' ');
-            textField.innerHTML = text;
-            //console.log(text);
-
-            printWords(i, textArr, textField, speed);
-        }
-    }, speed)
+        }, speed)
+    }
 }
 
+function firstPartOfText(outputWords) {
+    var middleId = Math.round((outputWords.length - 1) / 2);
+    if ((outputWords.length - 1) % 2 == 0) {
+        return outputWords.slice(0, middleId).join(' ');
+    } else {
+        return outputWords.slice(0, middleId - 1).join(' ');
+    }
+}
+
+function middlePartOfText(outputWords) {
+    var middleId = Math.round((outputWords.length - 1) / 2);
+
+    var text;
+    if ((outputWords.length - 1) % 2 == 0) {
+        text = outputWords[middleId];
+    } else {
+        text = outputWords.slice(middleId - 1, middleId + 1).join(' ');
+    }
+    return text.fontcolor('red');
+}
+
+function lastPartOfText(outputWords) {
+    var middleId = Math.round((outputWords.length - 1) / 2);
+    return outputWords.slice(middleId + 1, outputWords.length).join(' ');
+}
+
+function getValueByElementId(id) {
+    var elemnt = document.getElementById(id);
+    return elemnt.value;
+}
