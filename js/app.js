@@ -1,4 +1,5 @@
 const acceptTextForm = document.getElementById('accept-text-form');
+let timeouts = [];
 
 main();
 
@@ -20,38 +21,51 @@ function addText(event) {
     const textField = document.querySelector('.textfield');
     const textArr = text.split(/[\s,]+/);
 
-    printWords(numberDisplayWords, speed, 0, textArr, textField);
+    clearTimeouts();
+    printText(numberDisplayWords, speed, 0, textArr, textField);
     //textField.innerHTML = '';
 
     console.log(text);
 }
 
-function printWords(numberDisplayWords, speed, i, textArr, textField) {
+function clearTimeouts() {
+    for (let i = 0; i < timeouts.length; i++) {
+        clearTimeout(timeouts[i]);
+    }
+    timeouts = [];
+}
+
+function printText(numberDisplayWords, speed, i, textArr, textField) {
     if (textArr.length < numberDisplayWords) {
         textField.innerHTML = textArr.join(' ');
     } else {
-        setTimeout(function () {
-            if (i < textArr.length) {
-                var outputWords = [];
-                for (; outputWords.length < numberDisplayWords && i < textArr.length; i++) {
-                    outputWords.push(textArr[i]);
-                }
+        let id = setTimeout(function () {
+            printByWords(numberDisplayWords, speed, i, textArr, textField);
+        }, speed);
+        timeouts.push(id);
+    }
+}
 
-                var firstPart = firstPartOfText(outputWords);
-                var middlePart = middlePartOfText(outputWords);
-                var lastPart = lastPartOfText(outputWords);
+function printByWords(numberDisplayWords, speed, i, textArr, textField) {
+    if (i < textArr.length) {
+        let outputWords = [];
+        for (; outputWords.length < numberDisplayWords && i < textArr.length; i++) {
+            outputWords.push(textArr[i]);
+        }
 
-                var text = firstPart + ' ' + middlePart + ' ' + lastPart;
-                textField.innerHTML = text;
+        let firstPart = firstPartOfText(outputWords);
+        let middlePart = middlePartOfText(outputWords);
+        let lastPart = lastPartOfText(outputWords);
 
-                printWords(numberDisplayWords, speed, i, textArr, textField);
-            }
-        }, speed)
+        let text = firstPart + ' ' + middlePart + ' ' + lastPart;
+        textField.innerHTML = text;
+
+        printText(numberDisplayWords, speed, i, textArr, textField);
     }
 }
 
 function firstPartOfText(outputWords) {
-    var middleId = Math.round((outputWords.length - 1) / 2);
+    let middleId = Math.round((outputWords.length - 1) / 2);
     if ((outputWords.length - 1) % 2 == 0) {
         return outputWords.slice(0, middleId).join(' ');
     } else {
@@ -60,9 +74,9 @@ function firstPartOfText(outputWords) {
 }
 
 function middlePartOfText(outputWords) {
-    var middleId = Math.round((outputWords.length - 1) / 2);
+    let middleId = Math.round((outputWords.length - 1) / 2);
 
-    var text;
+    let text;
     if ((outputWords.length - 1) % 2 == 0) {
         text = outputWords[middleId];
     } else {
@@ -72,11 +86,11 @@ function middlePartOfText(outputWords) {
 }
 
 function lastPartOfText(outputWords) {
-    var middleId = Math.round((outputWords.length - 1) / 2);
+    let middleId = Math.round((outputWords.length - 1) / 2);
     return outputWords.slice(middleId + 1, outputWords.length).join(' ');
 }
 
 function getValueByElementId(id) {
-    var elemnt = document.getElementById(id);
+    let elemnt = document.getElementById(id);
     return elemnt.value;
 }
