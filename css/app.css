@@ -2,6 +2,11 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-style: italic;
+  color: darkorchid;
+}
+
 div {
   margin: 10px;
 }

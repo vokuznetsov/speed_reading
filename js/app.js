@@ -11,10 +11,10 @@ function addText(event) {
     event.preventDefault();
 
     const text = getValueByElementId('text-input');
-    const speed = getValueByElementId('speed-input');
+    const wordsInMinute = getValueByElementId('speed-input');
     const numberDisplayWords = getValueByElementId('display-words');
 
-    if (text === '' || speed === undefined) {
+    if (!text || !wordsInMinute || !numberDisplayWords) {
         return alert("Необходимо ввести название задачи");
     }
 
@@ -22,10 +22,11 @@ function addText(event) {
     const textArr = text.split(/[\s,]+/);
 
     clearTimeouts();
+    let speed = calculateSpeedInMs(numberDisplayWords, wordsInMinute)
     printText(numberDisplayWords, speed, 0, textArr, textField);
     //textField.innerHTML = '';
 
-    console.log(text);
+    //console.log(text);
 }
 
 function clearTimeouts() {
@@ -33,6 +34,14 @@ function clearTimeouts() {
         clearTimeout(timeouts[i]);
     }
     timeouts = [];
+}
+
+function calculateSpeedInMs(numberDisplayWords, wordsInMinute) {
+    let wordsInSecond = wordsInMinute / 60;
+    let speed = numberDisplayWords / wordsInSecond;
+
+    console.log("Timeout speed in seconds: " + speed);
+    return speed * 1000;
 }
 
 function printText(numberDisplayWords, speed, i, textArr, textField) {
