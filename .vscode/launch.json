@@ -9,7 +9,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///D:/Programming/VisualStudioCodeProjects/speed_reading/index.html",
+            "url": "file:///D:/Programming/VisualStudioCodeProjects/speed_reading/views/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
