@@ -1,7 +1,7 @@
 import { displayText as display, consolePrint } from './print_words.js';
+import style from '../css/style.css';
 
 const acceptTextForm = document.getElementById('accept-text-form');
-
 
 main();
 
