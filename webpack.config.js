@@ -2,14 +2,16 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+
 module.exports = {
   entry: './src/index.js',
-  mode: "development",
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    publicPath: '/dist/',
-    //contentBase: path.resolve(__dirname, "views"),
-    contentBase: 'views',
+    publicPath: path.resolve(__dirname, "/dist/"),
+    // publicPath: '/dist/',
+    contentBase: path.resolve(__dirname, "src/view"),
+    // contentBase: 'src/view',
     watchContentBase: true,
     compress: true,
     port: 9001
@@ -28,12 +30,31 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'style-loader', // inject CSS to page
+            // loader: MiniCssExtractPlugin.loader, // for production mode
           },
-          'css-loader',
+          'css-loader', // translates CSS into CommonJS modules
+          {
+            loader: 'postcss-loader', // Run post css actions
+            options: {
+              plugins: function () { // post css plugins, can be exported to postcss.config.js
+                return [
+                  require('precss'),
+                  require('autoprefixer')
+                ];
+              }
+            }
+          },
+          'sass-loader', // compiles Sass to CSS
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
         ],
       },
     ]

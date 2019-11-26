@@ -1,5 +1,7 @@
 import { displayText as display, consolePrint } from './print_words.js';
-import style from '../css/style.css';
+import style from './style/custom.scss';
+import '../open-book.png';
+//import 'bootstrap';
 
 const acceptTextForm = document.getElementById('accept-text-form');
 
