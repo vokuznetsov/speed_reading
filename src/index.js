@@ -28,7 +28,7 @@ function addText(event) {
     const textArr = text.split(/[\s,]+/);
 
     let speed = calculateSpeedInMs(numberDisplayWords, wordsInMinute);
-    display(wordsInMinute, speed, textArr, textField);
+    display(numberDisplayWords, speed, textArr, textField);
     consolePrint();
     
     //textField.innerHTML = '';

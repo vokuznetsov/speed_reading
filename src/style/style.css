@@ -48,7 +48,8 @@ button:active {
   /* children center horizontaly */
   margin: 70px 400px;
   height: 200px;
-  border: 1px groove black
+  border-radius: 6px;
+  border: 1px groove #acacaca8;
 }
 
 .textfield {
