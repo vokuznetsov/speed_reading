@@ -9,8 +9,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    publicPath: path.resolve(__dirname, "/dist/"),
-    // publicPath: '/dist/',
+    publicPath: '/',
     contentBase: path.resolve(__dirname, "dist"),
     // contentBase: 'src/view',
     watchContentBase: true,
