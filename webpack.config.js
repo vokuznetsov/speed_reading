@@ -1,5 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
@@ -10,7 +11,7 @@ module.exports = {
   devServer: {
     publicPath: path.resolve(__dirname, "/dist/"),
     // publicPath: '/dist/',
-    contentBase: path.resolve(__dirname, "src/view"),
+    contentBase: path.resolve(__dirname, "dist"),
     // contentBase: 'src/view',
     watchContentBase: true,
     compress: true,
@@ -18,6 +19,10 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new HtmlWebPackPlugin({
+      template: "./src/view/index.html",
+      filename: "./index.html"
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order)
@@ -54,9 +59,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader',
+          'file-loader?name=static/[name].[ext]',
         ],
-      },
+      }
     ]
   }
 };

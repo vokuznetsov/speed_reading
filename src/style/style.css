@@ -41,7 +41,7 @@ button:active {
 
 
 .display-text-container {
-  display: flex;
+  display: block;
   align-items: center;
   /* children center vertically */
   justify-content: center;
