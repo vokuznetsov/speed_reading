@@ -38,27 +38,3 @@ button:active {
   top: 1px;
 }
 
-
-
-.display-text-container {
-  display: block;
-  align-items: center;
-  /* children center vertically */
-  justify-content: center;
-  /* children center horizontaly */
-  margin: 70px 400px;
-  height: 200px;
-  border-radius: 6px;
-  border: 1px groove #acacaca8;
-}
-
-.textfield {
-  /* background-color: #B10DC9; */
-  width: 500px;
-  height: 70px;
-}
-
-#accept-text-form {
-  display: block;
-  margin-top: 70px;
-}

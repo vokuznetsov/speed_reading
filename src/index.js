@@ -1,7 +1,6 @@
 import { displayText as display, consolePrint } from './print_words.js';
 import style from './style/custom.scss';
 import './static/open-book.png';
-//import 'bootstrap';
 
 const acceptTextForm = document.getElementById('accept-text-form');
 
@@ -24,7 +23,7 @@ function addText(event) {
         return alert("Необходимо ввести название задачи");
     }
 
-    const textField = document.querySelector('.textfield');
+    const textField = document.querySelector('#textfield');
     const textArr = text.split(/[\s,]+/);
 
     let speed = calculateSpeedInMs(numberDisplayWords, wordsInMinute);
