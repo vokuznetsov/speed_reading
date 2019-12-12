@@ -25,3 +25,28 @@
 .min-vw-40 {
   min-width: 40vw !important;
 }
+
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Optional, to align inner items 
+                              horizontally inside the column */
+}
+
+.vr-al-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.vr-al-col {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Optional, to align inner items 
+                              horizontally inside the column */
+}
