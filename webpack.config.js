@@ -16,6 +16,9 @@ module.exports = {
     compress: true,
     port: 9001
   },
+  node: {
+    fs: "empty"
+ },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
