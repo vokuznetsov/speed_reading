@@ -17,6 +17,7 @@ function main() {
 function defaultValues() {
     const textArea = document.getElementById('text-input');
     textArea.innerHTML = DEFAULT_TEXT;
+    textArea.classList.add("text-secondary");
 }
 
 function addText(event) {
