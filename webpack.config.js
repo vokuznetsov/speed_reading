@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/app/index.js',
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -22,7 +22,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      template: "./src/view/index.html",
+      template: "./src/static/index.html",
       filename: "./index.html"
     }),
     new MiniCssExtractPlugin({
@@ -61,7 +61,7 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
-          'file-loader?name=static/[name].[ext]',
+          'file-loader?name=resources/[name].[ext]',
         ],
       }
     ]
