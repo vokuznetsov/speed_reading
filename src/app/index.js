@@ -1,8 +1,8 @@
 import { displayText as display, consolePrint } from './print_words.js';
 import { DEFAULT_TEXT } from "./constant.js";
 import style from './style/custom.scss';
-import './static/open-book.png';
-import './static/speeder.jpg';
+import '../resources/open-book.png';
+import '../resources/speeder.jpg';
 import 'bootstrap';
 
 const acceptTextForm = document.getElementById('accept-text-form');
