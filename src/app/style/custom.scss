@@ -1,5 +1,18 @@
-@import "./style.css";
+//@import "./style.css";
 @import "~bootstrap/scss/bootstrap";
+
+h1 {
+  font-style: italic;
+  color: darkorchid;
+}
+
+div {
+  margin: 10px;
+}
+
+input, textarea {
+  border-radius: 9px;
+}
 
 .speed-reading-body {
   text-align: center;
