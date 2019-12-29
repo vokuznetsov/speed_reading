@@ -3,11 +3,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'inline-source-map';
+  }
 
-module.exports = {
+  if (argv.mode === 'production') {
+  }
+
+  return config;
+};
+
+var config = {
   entry: './src/app/index.js',
-  mode: 'development',
-  devtool: 'inline-source-map',
   devServer: {
     publicPath: '/',
     contentBase: path.resolve(__dirname, "dist"),
@@ -18,7 +26,7 @@ module.exports = {
   },
   node: {
     fs: "empty"
- },
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
