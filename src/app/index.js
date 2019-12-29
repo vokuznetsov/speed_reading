@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap';
 
-import './main/speed_reading.js'
 import Navbar from "./components/Navbar/Navbar";
-import Header from "./components/Header/Header";
+import SpeedReading from "./module/SpeedReading/SpeedReading"
+import speedReading from './main/speed_reading.js'
 
 
 ReactDOM.render(<Navbar />, document.getElementById('navbar'));
-ReactDOM.render(<Header />, document.getElementById('header'));
+ReactDOM.render(<SpeedReading />, document.getElementById('root'));
+
+speedReading();

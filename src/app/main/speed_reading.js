@@ -5,9 +5,8 @@ import '../../resources/open-book.png';
 import '../../resources/speeder.jpg';
 
 
-speedReading();
 
-function speedReading() {
+const speedReading = () => {
     const acceptTextForm = document.getElementById('accept-text-form');
 
     defaultValues();
@@ -51,3 +50,5 @@ function calculateSpeedInMs(numberDisplayWords, wordsInMinute) {
     console.log("Timeout speed in seconds: " + speed);
     return speed * 1000;
 }
+
+export default speedReading;
