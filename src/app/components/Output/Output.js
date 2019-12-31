@@ -7,7 +7,7 @@ class Output extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row justify-content-center">
                 <div className="col vertical-align">
                     <div className="br-rad-6 min-vh-10 min-w-300-px vertical-align">
                         <h6 id="textfield" type="text"></h6>
