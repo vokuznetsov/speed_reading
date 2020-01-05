@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import 'bootstrap';
 
 import SpeedReading from "./module/SpeedReading/SpeedReading"
-import speedReading from './main/speed_reading.js'
+import SpeedReadingPreparation from './main/SpeedReadingPreparation'
 
 
 ReactDOM.render(<SpeedReading />, document.getElementById('root'));
 
-speedReading();
+const spPreparation = new SpeedReadingPreparation();
+spPreparation.speedReading();

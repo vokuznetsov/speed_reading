@@ -8,7 +8,7 @@
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
     "watch": "webpack -w",
-    "dev": "webpack-dev-server --open",
+    "dev": "webpack-dev-server --open --mode=development",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
