@@ -1,0 +1,1 @@
+export const SPEED_READING_HEADER = 'Скорочтение';

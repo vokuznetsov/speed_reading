@@ -1,0 +1,1 @@
+export const NAVBAR_ITEMS = ['Press', 'Blog', 'Tools', 'Contact Us', 'About Us'];

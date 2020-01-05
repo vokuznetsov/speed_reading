@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FOOTER as footer } from './constant';
 
 class Footer extends Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Footer extends Component {
     render() {
         return (
             <footer>
-                <p> © 2019 - Company Inc.</p>
+                <p>{footer}</p>
             </footer>
         )
     }

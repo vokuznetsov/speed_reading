@@ -1,4 +1,5 @@
 import React from 'react';
+import { SPEED_READING_HEADER as header } from './constant'
 
 class Header extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Header extends React.Component {
     render() {
         return (
             <header className="mt-3">
-                <h1>Скорочтение</h1>
+                <h1>{header}</h1>
             </header>
         )
     }

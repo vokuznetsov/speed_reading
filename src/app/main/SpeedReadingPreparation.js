@@ -2,7 +2,6 @@ import DisplayWords from './DisplayWords';
 import { DEFAULT_TEXT } from "../constant.js";
 import style from '../style/custom.scss';
 import '../../resources/open-book.png';
-import '../../resources/speeder.jpg';
 
 class SpeedReadingPreparation {
     constructor() {
