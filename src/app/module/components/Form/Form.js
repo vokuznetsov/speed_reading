@@ -1,9 +1,10 @@
 import React from 'react';
 import * as consts from './constant';
-import Textarea from '../Textarea/Textarea';
-import Input from '../Input/Input';
-import Button from '../Button/Button'
-import { SEND as send_button } from '../../constant';
+import Textarea from '../../../components/Textarea/Textarea';
+import Input from '../../../components/Input/Input';
+import Button from '../../../components/Button/Button'
+import { SEND as send_button } from '../../../constant';
+import SpeedReadingPreparation from './index';
 
 
 
@@ -11,9 +12,19 @@ class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = { isEnable: true };
+        this.spPreparation = new SpeedReadingPreparation();
+
+        this.handleSubmitForm = this.handleSubmitForm.bind(this);
         this.handleTestButton = this.handleTestButton.bind(this);
     }
 
+    handleSubmitForm(event) {
+        if (this.state.isEnable) {
+            this.spPreparation.addText(event);
+        } else {
+            this.submit(event.preventDefault());
+        }
+    }
 
     handleTestButton() {
         this.setState(state => ({
@@ -25,7 +36,7 @@ class Form extends React.Component {
     render() {
         const submitForm = this.props.handleSubmitForm;
         return (
-            <form id="accept-text-form" onSubmit={this.state.isEnable ? this.props.handleSubmitForm : (e) => { this.submit(e.preventDefault()) }}>
+            <form id="accept-text-form" onSubmit={this.props.handleSubmitForm}>
                 <InputField isEnable={this.state.isEnable} />
                 <div>
                     <Button id="test-button" onClick={this.handleTestButton} name="Тест" type="button" />
