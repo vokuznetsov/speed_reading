@@ -1,4 +1,5 @@
 import React from 'react';
+import { DEFAULT_TEXT } from "../../constant";
 
 class Textarea extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Textarea extends React.Component {
     render() {
         return (
             <div className="outer">
-                <textarea className="min-vh-20 min-vw-40" id={this.props.id}></textarea>
+                <textarea className="min-vh-20 min-vw-40 text-secondary" id={this.props.id} defaultValue={DEFAULT_TEXT}></textarea>
             </div>
         )
     }

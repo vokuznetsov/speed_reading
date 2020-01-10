@@ -1,25 +1,23 @@
-import DisplayWords from './DisplayWords';
-import { DEFAULT_TEXT } from "../constant.js";
-import style from '../style/custom.scss';
-import '../../resources/open-book.png';
+import DisplayWords from './display_words';
+import style from '../../../style/custom.scss';
+import '../../../../resources/open-book.png';
 
 class SpeedReadingPreparation {
     constructor() {
-        this.displayWords = new DisplayWords();``
+        this.displayWords = new DisplayWords(); ``
     }
 
-    speedReading() {
-        const acceptTextForm = document.getElementById('accept-text-form');
+    // speedReading() {
+    //     const acceptTextForm = document.getElementById('accept-text-form');
 
-        this.defaultValues();
-        acceptTextForm.addEventListener('submit', (event) => this.addText(event));
-    }
+    //     acceptTextForm.addEventListener('submit', (event) => this.addText(event));
+    // }
 
-    defaultValues() {
-        const textArea = document.getElementById('text-input');
-        textArea.innerHTML = DEFAULT_TEXT;
-        textArea.classList.add("text-secondary");
-    }
+    // defaultValues() {
+    //     const textArea = document.getElementById('text-input');
+    //     textArea.innerHTML = DEFAULT_TEXT;
+    //     textArea.classList.add("text-secondary");
+    // }
 
     addText(event) {
         event.preventDefault();

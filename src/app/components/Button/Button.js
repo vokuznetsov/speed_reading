@@ -7,7 +7,7 @@ class Button extends React.Component {
 
     render() {
         return (
-            <button className="btn btn-light-style" id={this.props.id} onClick={this.props.onClick} type="submit">{this.props.name} </button>
+            <button className="btn btn-light-style" id={this.props.id} onClick={this.props.onClick} type={this.props.type}>{this.props.name} </button>
         )
     }
 }

@@ -23,11 +23,12 @@ class Form extends React.Component {
 
 
     render() {
+        const submitForm = this.props.handleSubmitForm;
         return (
-            <form id="accept-text-form">
+            <form id="accept-text-form" onSubmit={this.state.isEnable ? this.props.handleSubmitForm : (e) => { this.submit(e.preventDefault()) }}>
                 <InputField isEnable={this.state.isEnable} />
                 <div>
-                    <Button id="test-button" onClick={this.handleTestButton} name="Тест" />
+                    <Button id="test-button" onClick={this.handleTestButton} name="Тест" type="button" />
                 </div>
             </form>
         )
@@ -61,7 +62,7 @@ function TextInput(props) {
             </div>
             <Input data={words_by_minute_props} />
             <Input data={number_words_props} />
-            <Button id="send-button" name={send_button} />
+            <Button id="send-button" name={send_button} type="submit" />
         </React.Fragment>
     );
 }
