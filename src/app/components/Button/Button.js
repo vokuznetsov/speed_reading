@@ -1,5 +1,4 @@
 import React from 'react';
-import { SEND as send_buuton } from '../../constant';
 
 class Button extends React.Component {
     constructor(props) {
@@ -8,7 +7,7 @@ class Button extends React.Component {
 
     render() {
         return (
-            <button className="btn btn-light-style" id="send-button" type="submit">{send_buuton}</button>
+            <button className="btn btn-light-style" id={this.props.id} onClick={this.props.onClick} type="submit">{this.props.name} </button>
         )
     }
 }
