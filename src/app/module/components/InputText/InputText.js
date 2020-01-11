@@ -8,11 +8,13 @@ class InputText extends React.Component {
     }
 
     render() {
-        if (this.props.isEnable) {
+        if (this.props.selectedOption == consts.INPUT_OPTIONS[0]) {
             return <TextInput />;
+        } else if (this.props.selectedOption == consts.INPUT_OPTIONS[1]) {
+            return <UrlInput />;
         }
 
-        return <UrlInput />;
+        return null;
     }
 }
 
@@ -27,7 +29,7 @@ function TextInput(props) {
 
 function UrlInput(props) {
     return (
-        <div className="warning">
+        <div className="warning text-warning">
             Warning!
         </div>
     );

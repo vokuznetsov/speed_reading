@@ -4,20 +4,8 @@ import '../../../../resources/open-book.png';
 
 class SpeedReadingPreparation {
     constructor() {
-        this.displayWords = new DisplayWords(); ``
+        this.displayWords = new DisplayWords();
     }
-
-    // speedReading() {
-    //     const acceptTextForm = document.getElementById('accept-text-form');
-
-    //     acceptTextForm.addEventListener('submit', (event) => this.addText(event));
-    // }
-
-    // defaultValues() {
-    //     const textArea = document.getElementById('text-input');
-    //     textArea.innerHTML = DEFAULT_TEXT;
-    //     textArea.classList.add("text-secondary");
-    // }
 
     addText(event) {
         event.preventDefault();

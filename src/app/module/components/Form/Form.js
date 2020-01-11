@@ -1,46 +1,48 @@
 import React from 'react';
 import InputText from '../InputText/InputText';
 import InputParameters from '../InputParameters/InputParameters';
+import Radio from '../../../components/Radio/Radio'
 import Button from '../../../components/Button/Button'
+import * as consts from '../constant';
 import { SEND as send_button } from '../../../constant';
 import SpeedReadingPreparation from './index';
-
 
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isEnable: true };
+        this.state = {
+            isEnable: true,
+            selectedOption: consts.INPUT_OPTIONS[0]
+        };
         this.spPreparation = new SpeedReadingPreparation();
 
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
-        this.handleTestButton = this.handleTestButton.bind(this);
+        this.handleRadioButtonChange = this.handleRadioButtonChange.bind(this);
     }
 
     handleSubmitForm(event) {
         if (this.state.isEnable) {
             this.spPreparation.addText(event);
         } else {
-            this.submit(event.preventDefault());
+            event.preventDefault();
         }
     }
 
-    handleTestButton() {
+    handleRadioButtonChange(event) {
+        const option = event.target.value;
         this.setState(state => ({
-            isEnable: !state.isEnable
+            selectedOption: option
         }));
     }
-
 
     render() {
         return (
             <form id="accept-text-form" onSubmit={this.handleSubmitForm}>
-                <InputText isEnable={this.state.isEnable} />
+                <Radio options={consts.INPUT_OPTIONS} selectedOption={this.state.selectedOption} onChange={this.handleRadioButtonChange} />
+                <InputText selectedOption={this.state.selectedOption} />
                 <InputParameters />
                 <Button id="send-button" name={send_button} type="submit" />
-                <div>
-                    <Button id="test-button" onClick={this.handleTestButton} name="Тест" type="button" />
-                </div>
             </form>
         )
     }
