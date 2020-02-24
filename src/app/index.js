@@ -2,6 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap';
 
-import SpeedReading from "./module/SpeedReading"
+import Main from "./module/Main"
 
-ReactDOM.render(<SpeedReading />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));

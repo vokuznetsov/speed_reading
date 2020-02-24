@@ -1,9 +1,9 @@
 import React from 'react'
-import Form from "./Form/Form";
+import Form from "../components/Form/Form";
 import Output from "../../components/Output/Output";
 
 
-class SpeedReadingContainer extends React.Component {
+class SpeedReading extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -22,4 +22,4 @@ class SpeedReadingContainer extends React.Component {
     }
 }
 
-export default SpeedReadingContainer;
+export default SpeedReading;
